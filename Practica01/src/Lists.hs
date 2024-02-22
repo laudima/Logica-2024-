@@ -8,7 +8,8 @@
 - Practica 1: Recordando Haskell. Árboles
 - Integrantes:
 - Laura Itzel Rodríguez Dimayuga 
--
+- Andrea Valeria Figueroa Barrientos
+- Rafael Vázquez Franco
 -}
 
 module Lists where

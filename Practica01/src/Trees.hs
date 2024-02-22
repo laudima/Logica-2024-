@@ -8,7 +8,8 @@
 - Practica 1: Recordando Haskell. Árboles
 - Integrantes:
 - Laura Itzel Rodriguez Dimayuga 
--
+- Andrea Valeria Figueroa Barrientos
+- Rafael Vázquez Franco
 -}
 
 module Trees where
@@ -40,28 +41,39 @@ nni (Node _ left right) = 1 + nni left + nni right
 
 -- | Nos dice si un elemento está contenido en un árbol ordenado.
 contains :: (Ord a, Eq a) => a -> BTree a -> Bool
-contains = error "D:"
+contains _ Void = False
+contains x (Node value left right)
+    | x == value = True
+    | x < value  = contains x left
+    | otherwise  = contains x right
 
 -- | Recorrido inorder.
 inorder :: BTree a -> [a]
-inorder = error "D:"
+inorder Void = []
+inorder (Node value left right) = inorder left ++ [value] ++ inorder right
 
 -- | Recorrido preorder.
 preorder :: BTree a -> [a]
-preorder = error "D:"
+preorder Void = []
+preorder (Node value left right) = [value] ++ preorder left ++ preorder right
 
 -- | Recorrido postorder.
 postorder :: BTree a -> [a]
-postorder = error "D:"
+postorder Void = []
+postorder (Node value left right) = postorder left ++ postorder right ++ [value]
 
 -- | Agrega un elemento a un árbol binario de manera ordenada.
 add :: (Ord a) => a -> BTree a -> BTree a
-add = error "D:"
+add x Void = Node x Void Void
+add x (Node value left right)
+    | x == value = Node x left right  -- Ya está
+    | x < value  = Node value (add x left) right
+    | otherwise  = Node value left (add x right)
 
 -- | Pasa una lista a un árbol binario de forma ordenada.
 fromList :: (Ord a) => [a] -> BTree a -> BTree a
-fromList = error "D:"
-
+fromList [] tree = tree
+fromList (x:xs) tree = fromList xs (add x tree)
 --------------------------------------------------------------------------------
 --------                           AUXILIARES                           --------
 --------------------------------------------------------------------------------
