@@ -4,8 +4,8 @@
 |Integrantes                        |          |
 |:---------------------------------:|:---------|
 |Rodríguez Dimayuga Laura Itzel     | 422013628|
-|Figueroa Barrientos Andrea Valeria |          |
-|Vázquez Franco Rafael              |          | 
+|Figueroa Barrientos Andrea Valeria | 317095346|
+|Vázquez Franco Rafael              | 317280036| 
 
 
 ## Funciones (descripción) 
@@ -34,6 +34,15 @@ Similar a la de pares, solo que ocupamos el modulo n, que queremos que sea igual
 Agreagamos la multiplicacion de los primeros elementos de la lista y luego hacemos eso con el resto 
 de las dos listas. 
 
+6. 
+
+Usamos recursión para crear árboles binarios de altura n. La base es cuando n es 0, en ese caso regresamos las hojas con 1 y 2. Luego, usamos recursión para crear los subárboles n - 1 y los unimos para crear nuevos árboles binarios.
+
+7. hbd
+
+Tomamos un entero n y una lista de listas, y regresamos una lista por comprensión que trae todas las sublistas de lst de tamaño n,
+Luego, tomamos una lista de listas lst y regresamos una lista por comprensión que contiene las listas que verificamos que sean pares.
+
 ## Análisis de complejidad  
 
 1. Como la llamada recursiva se hace por cada subconjunto. Si nuestra lista es de tamaño `n`, 
@@ -49,4 +58,7 @@ entonces la complejidad seria $2^n + 2^{n-1} + \cdots + 1 = 2^{n+1}-1$, esto nos
 
 6. Cada elemento se multica por uno de la otra lista, por lo que si la longitud de la primera y la tecera es $n$ y $m$ respectivamente entonces la complejidad es $O(n*m)$ 
 
+7. La complejidad de enumerate es 0($2^n$) es la altura máxima porque para cada nivel adicional de altura, se duplica la cantidad de árboles posibles.
+
+8. Es lineal, $O(n)$
 ## Dudas y comentarios 

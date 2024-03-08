@@ -47,6 +47,31 @@ mapListList :: [Int] -> [Int] -> [Int]
 mapListList xs ys = [x * y | x <- xs, y <- ys]
 
 
+-- / enumerate. Lista generadora de árboles
+
+data Tree a = Leaf a | Node (Tree a) (Tree a) deriving (Show)
+
+enumerate :: (Eq a1, Num a1, Num a2) => a1 -> [Tree a2]
+enumerate 0 = [Leaf 1, Leaf 2]
+enumerate n = [Node left right | left <- subtrees, right <- subtrees]
+  where subtrees = enumerate (n - 1)
+
+
+  -- / SublistN.
+uno = [1]
+dos = [1, 2]
+tres = [1, 2, 3]
+cuatro = [1, 2, 3, 4]
+list = [uno, uno, tres, dos, tres, cuatro, dos, uno]
+
+sublistN :: Int -> [[a]] -> [[a]]
+sublistN n lst = [sublist | sublist <- lst, length sublist == n]
+result = listasLongitudParConcatenadas list
+
+-- / 
+listParesConcat :: [[a]] -> [[a]]
+listParesConcat lst = [lista ++ lista | lista <- lst, even (length lista)]
+
 
 --------------------------------------------------------------------------------
 --------                           AUXILIARES                           --------
@@ -80,3 +105,5 @@ testSquares = squares 5 == [1,4,9,16,25]
 -- | testMapListList. Pruebas para la función mapListList.
 testMapListList :: Bool
 testMapListList = mapListList [1,2,3] [4,5,6] == [4,5,6,8,10,12,12,15,18]
+
+
