@@ -1,4 +1,4 @@
-# Práctica1 
+# Práctica03
 
 |Integrantes                        |          |
 |:---------------------------------:|:---------|
@@ -28,3 +28,4 @@ La FND es muy analoga a la FNC solo cambian un poco la manera en como aplicamos 
 ## Análisis de complejidad  
 
 ## Dudas o comentarios 
+Las funciones fueron consultadas en la [documentacion](https://hackage.haskell.org/package/hatt-1.5.0.3/src/src/Data/Logic/Propositional/NormalForms.hs) de haskell 
